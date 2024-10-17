@@ -23,7 +23,21 @@ namespace FitTrackWPF
         public RegisterWindow()
         {
             InitializeComponent();
+            LoadCountries();
 
+        }
+
+        private void LoadCountries()
+        {
+            // Hämta alla specifika kulturer från System.Globalization och skapa en lista över alla unika länder.
+            var countries = CultureInfo.GetCultures(CultureTypes.SpecificCultures)
+                                       .Select(culture => new RegionInfo(culture.Name).EnglishName)
+                                       .Distinct()
+                                       .OrderBy(name => name)
+                                       .ToList();
+
+            // Fyll ComboBox med listan av länder
+            CmbBoxCountry.ItemsSource = countries;
         }
         private void BtnCreate(object sender, RoutedEventArgs e)
         {
@@ -31,20 +45,35 @@ namespace FitTrackWPF
             string userName = txtBoxUsername.Text;
             string passWord = txtBoxPassword.Text;
             string country = CmbBoxCountry.SelectedItem as string;
-            
+
             //kollar ifall textboxarna är ifyllda
-            if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(passWord) || country == null)
+            if (string.IsNullOrEmpty(userName))
             {
-                MessageBox.Show("Fill in username and password and choose country!");
+                MessageBox.Show("Please fill in a username.");
+            }
+            else if (string.IsNullOrEmpty(passWord))
+            {
+                MessageBox.Show("Please fill in a password.");
+            }
+            else if (CmbBoxCountry.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please choose a country.");
             }
             else
             {
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
-                this.Close();
+                this.Close();   
             }
 
-           
+
+        }
+        //Ifall man vill avbryta registrering och gå tillbaka till första sidan.
+        private void BtnCancel(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

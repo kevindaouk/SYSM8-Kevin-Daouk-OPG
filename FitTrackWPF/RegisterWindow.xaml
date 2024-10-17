@@ -8,7 +8,8 @@
         Title="Register" Height="450" Width="800" Background="LightGray">
 <Grid>
         <StackPanel>
-            <Label Content="Start your training journey today!" FontSize="30" FontFamily="Arial"/>
+            
+            <Label Content="Start your training journey today!" FontSize="30" FontFamily="Arial" FontWeight="Bold"/>
             <Label Content="Register now!" FontFamily="Arial" FontSize="15"/>
             <Label Content="Username:"/>
             <TextBox HorizontalAlignment="Left" x:Name="txtBoxUsername" Width="120"/>
@@ -17,13 +18,10 @@
             <Label Content="Country"/>
             <ComboBox x:Name="CmbBoxCountry" Width="120" HorizontalAlignment="Left"/>
             <Button Content="Create" HorizontalAlignment="Left" Click="BtnCreate"/>
-            
+            <Button Content="Cancel" HorizontalAlignment="Left" Click="BtnCancel"/>
+         </StackPanel>
+        <Image Source="Images/FrankZane.jpg" Margin="289,71,57,40"/>
 
-
-
-        </StackPanel>
-        
-        
-</Grid>
+    </Grid>
     </Window>
 
