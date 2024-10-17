@@ -20,5 +20,17 @@ namespace FitTrackWPF
         {
             InitializeComponent();
         }
+
+        private void BtnSignIn(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnRegister(object sender, RoutedEventArgs e)
+        {
+            RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.Show();
+            this.Close();
+        }
     }
 }
