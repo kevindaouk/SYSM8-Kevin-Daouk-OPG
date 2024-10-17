@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitTrackWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="LightGray">
+        Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Image Source="Images/TrainingImage4.jpg" Margin="131,87,131,-21" />
         <StackPanel>
-            <Label Content="FitTrack" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="60" FontFamily="Arial"/>
+            <Label Content="FitTrack" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="60" FontFamily="Candara" FontWeight="Bold"/>
             <Label Content="Username" HorizontalAlignment="Center"/>
             <TextBox TextWrapping="Wrap" Text="" Width="120"/>
             <Label Content="Password" HorizontalAlignment="Center"/>
@@ -17,8 +17,6 @@
             <Button Content="Sign in" HorizontalAlignment="Center" Click="BtnSignIn"/>
             <Button Content="Register" HorizontalAlignment="Center" Click="BtnRegister"/>
 
-
-
         </StackPanel>
-     </Grid>
+    </Grid>
 </Window>
