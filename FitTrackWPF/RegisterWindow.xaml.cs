@@ -61,13 +61,25 @@ namespace FitTrackWPF
             }
             else
             {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();   
+                try
+                {
+                    User newUser = new User(userName, passWord, country);
+                    UserManager.AddUser(newUser);
+                    MessageBox.Show("User successfully created!");
+
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
+        
 
 
-        }
+    }
         //Ifall man vill avbryta registrering och gå tillbaka till första sidan.
         private void BtnCancel(object sender, RoutedEventArgs e)
         {

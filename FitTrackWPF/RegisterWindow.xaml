@@ -9,7 +9,7 @@
 <Grid>
         <StackPanel>
             
-            <Label Content="Start your training journey today!" FontSize="30" FontFamily="Arial" FontWeight="Bold"/>
+            <Label Content="Start your training journey today!" FontSize="40" FontFamily="Candara" FontWeight="Bold"/>
             <Label Content="Register now!" FontFamily="Arial" FontSize="15"/>
             <Label Content="Username:"/>
             <TextBox HorizontalAlignment="Left" x:Name="txtBoxUsername" Width="120"/>

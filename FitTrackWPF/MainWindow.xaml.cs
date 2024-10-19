@@ -23,7 +23,26 @@ namespace FitTrackWPF
 
         private void BtnSignIn(object sender, RoutedEventArgs e)
         {
+            //sparar inmatad username & password i variabler
+            string enteredUsername = txtBoxUsername.Text;
+            string enteredPassword = txtBoxPassword.Text;
 
+            // Hämta användaren via UserManager
+            User foundUser = UserManager.GetUser(enteredUsername);
+
+            // Kontrollera om användaren finns och om lösenordet stämmer
+            if (foundUser != null && foundUser.CheckPassword(enteredPassword))
+            {
+                MessageBox.Show("Login successful!");
+                // Öppna WorkoutsWindow
+                WorkoutsWindow workoutsWindow = new WorkoutsWindow();
+                workoutsWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Incorrect username or password.");
+            }
         }
 
         private void BtnRegister(object sender, RoutedEventArgs e)
