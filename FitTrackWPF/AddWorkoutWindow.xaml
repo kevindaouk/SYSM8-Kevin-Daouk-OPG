@@ -9,19 +9,17 @@
     <Grid>
         <StackPanel Margin="20">
             <Label Content="Add a New Workout" FontSize="20" HorizontalAlignment="Center"/>
-
             <Label Content="Workout Type:"/>
+            
             <ComboBox x:Name="cmbWorkoutType" Width="200">
                 <ComboBoxItem Content="Cardio"/>
                 <ComboBoxItem Content="Strength"/>
             </ComboBox>
-
+            
             <Label Content="Date:"/>
             <TextBox x:Name="txtWorkoutDate" Width="200"/>
-
             <Label Content="Duration (minutes):"/>
             <TextBox x:Name="txtWorkoutDuration" Width="200"/>
-
             <!-- Specifika fält för olika typer av träning -->
             <StackPanel x:Name="cardioFields" Visibility="Collapsed">
                 <Label Content="Calories Burned:"/>
@@ -31,11 +29,9 @@
             <StackPanel x:Name="strengthFields" Visibility="Collapsed">
                 <Label Content="Repetitions:"/>
                 <TextBox x:Name="txtRepetitions" Width="200"/>
-
                 <Label Content="Sets:"/>
                 <TextBox x:Name="txtSets" Width="200"/>
             </StackPanel>
-
             <Label Content="Notes:"/>
             <TextBox x:Name="txtNotes" Width="200" Height="100"/>
         </StackPanel>
