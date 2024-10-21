@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="WorkoutsWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="Add Workout" HorizontalAlignment="Left" Margin="69,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.522,-10.177"/>
+        <Button Content="UserDetails" HorizontalAlignment="Left" Margin="378,59,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.716,-0.292"/>
+        <Button Content="Details" HorizontalAlignment="Left" Margin="252,49,0,0" VerticalAlignment="Top"/>
+        <Button Content="Remove" HorizontalAlignment="Left" Margin="507,69,0,0" VerticalAlignment="Top"/>
+        <Button Content="Info" HorizontalAlignment="Left" Margin="608,81,0,0" VerticalAlignment="Top"/>
+        <Button Content="Sign out" HorizontalAlignment="Left" Margin="726,74,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
