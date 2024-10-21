@@ -26,23 +26,7 @@ namespace FitTrackWPF
 
         private void btnSaveWorkout(object sender, RoutedEventArgs e)
         {
-            string type = txtWorkoutType.Text;
-            string date = txtWorkoutDate.Text;
-            bool isDurationValid = int.TryParse(txtWorkoutDuration.Text, out int duration);
-            bool isCaloriesValid = int.TryParse(txtCaloriesBurned.Text, out int calories);
-            string notes = txtNotes.Text;
-
-            if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(date) || !isDurationValid || !isCaloriesValid)
-            {
-                MessageBox.Show("Please fill in all information above, notes are voluntarily");
-                
-            }
-            else
-            {
-                Workout = new Workout(type, date, duration, calories, notes);
-                DialogResult = true; // Stänger fönstret och signalerar att träningen är skapad.
-                this.Close();
-            }
+        
         }
 
         private void btnCancelWorkout(object sender, RoutedEventArgs e)
