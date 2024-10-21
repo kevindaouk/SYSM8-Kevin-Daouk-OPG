@@ -23,6 +23,7 @@ namespace FitTrackWPF
 
         private void BtnSignIn(object sender, RoutedEventArgs e)
         {
+            
             //sparar inmatad username & password i variabler
             string enteredUsername = txtBoxUsername.Text;
             string enteredPassword = txtBoxPassword.Text;
@@ -42,6 +43,16 @@ namespace FitTrackWPF
             else
             {
                 MessageBox.Show("Incorrect username or password.");
+            }
+
+            //Tillfällig
+            string adminUser = "admin";
+            string adminPword = "admin";
+            if (enteredUsername == adminUser && enteredPassword == adminPword)
+            {
+                WorkoutsWindow workoutsWindow = new WorkoutsWindow();
+                workoutsWindow.Show();
+                this.Close();
             }
         }
 

@@ -23,5 +23,18 @@ namespace FitTrackWPF
         {
             InitializeComponent();
         }
+
+        private void btnAddWorkout(object sender, RoutedEventArgs e)
+        {
+            AddWorkoutWindow workoutwindow = new AddWorkoutWindow();
+            workoutwindow.Show();
+            this.Close();
+        }
+
+        private void btnInfo(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Our goal is to help you reach your personal goals in training. Click on the workouts that you see in the list below and then \"Add Workout.\"." +
+                " If you would like to remove a workout that you didn't do, simply click \"Remove Workout.\"");
+        }
     }
 }
