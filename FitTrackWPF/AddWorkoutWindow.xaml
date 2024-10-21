@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="AddWorkoutWindow" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel Margin="20">
+            <Label Content="Add a New Workout" FontSize="20" HorizontalAlignment="Center"/>
+            <Label Content="Workout Type:"/>
+            <TextBox x:Name="txtWorkoutType" Width="200"/>
+            <Label Content="Date:"/>
+            <TextBox x:Name="txtWorkoutDate" Width="200"/>
+            <Label Content="Duration (minutes):"/>
+            <TextBox x:Name="txtWorkoutDuration" Width="200"/>
+            <Label Content="Calories Burned:"/>
+            <TextBox x:Name="txtCaloriesBurned" Width="200"/>
+            <Label Content="Notes:"/>
+            <TextBox x:Name="txtNotes" Width="200" Height="100"/>
+        </StackPanel>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="302,363,0,0" VerticalAlignment="Top"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="457,363,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>

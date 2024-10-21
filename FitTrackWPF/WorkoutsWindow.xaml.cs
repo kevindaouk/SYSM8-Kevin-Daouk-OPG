@@ -29,6 +29,7 @@ namespace FitTrackWPF
             AddWorkoutWindow workoutwindow = new AddWorkoutWindow();
             workoutwindow.Show();
             this.Close();
+
         }
 
         private void btnInfo(object sender, RoutedEventArgs e)
