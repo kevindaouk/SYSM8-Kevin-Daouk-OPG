@@ -37,5 +37,12 @@ namespace FitTrackWPF
             MessageBox.Show("Our goal is to help you reach your personal goals in training. Click on the workouts that you see in the list below and then \"Add Workout.\"." +
                 " If you would like to remove a workout that you didn't do, simply click \"Remove Workout.\"");
         }
+
+        private void btnSignOut(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }

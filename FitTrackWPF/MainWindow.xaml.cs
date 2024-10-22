@@ -27,12 +27,14 @@ namespace FitTrackWPF
             //sparar inmatad username & password i variabler
             string enteredUsername = txtBoxUsername.Text;
             string enteredPassword = txtBoxPassword.Text;
+            string adminUser = "admin";
+            string adminPword = "admin";
 
             // Hämta användaren via UserManager
             User foundUser = UserManager.GetUser(enteredUsername);
 
-            // Kontrollera om användaren finns och om lösenordet stämmer
-            if (foundUser != null && foundUser.CheckPassword(enteredPassword))
+            // Kontrollera om användaren finns och om lösenordet stämmer, eller logga in med admin inlogg
+            if (foundUser != null && foundUser.CheckPassword(enteredPassword) || enteredUsername == adminUser && enteredPassword == adminPword)
             {
                 MessageBox.Show("Login successful!");
                 // Öppna WorkoutsWindow
@@ -45,15 +47,7 @@ namespace FitTrackWPF
                 MessageBox.Show("Incorrect username or password.");
             }
 
-            //Tillfällig
-            string adminUser = "admin";
-            string adminPword = "admin";
-            if (enteredUsername == adminUser && enteredPassword == adminPword)
-            {
-                WorkoutsWindow workoutsWindow = new WorkoutsWindow();
-                workoutsWindow.Show();
-                this.Close();
-            }
+            
         }
 
         private void BtnRegister(object sender, RoutedEventArgs e)

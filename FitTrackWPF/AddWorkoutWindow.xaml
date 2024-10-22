@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitTrackWPF"
         mc:Ignorable="d"
-        Title="AddWorkoutWindow" Height="450" Width="800">
+        Title="AddWorkoutWindow" Height="450" Width="800" Background="Crimson">
     <Grid>
         <StackPanel Margin="20">
             <Label Content="Add a New Workout" FontSize="20" HorizontalAlignment="Center"/>
@@ -20,7 +20,7 @@
             <TextBox x:Name="txtWorkoutDate" Width="200"/>
             <Label Content="Duration (minutes):"/>
             <TextBox x:Name="txtWorkoutDuration" Width="200"/>
-            <!-- Specifika fält för olika typer av träning -->
+            
             <StackPanel x:Name="cardioFields" Visibility="Collapsed">
                 <Label Content="Calories Burned:"/>
                 <TextBox x:Name="txtCaloriesBurned" Width="200"/>

@@ -8,7 +8,13 @@ namespace FitTrackWPF
 {
     class UserManager
     {
-            
+        //public UserManager()
+        //{
+        //    users = new List<User>();
+        //    users.Add(new User("kevin", "kevin", "Sverige"));
+        //    users.Add(new User("richard", "richard", "Sverige"));
+        //}
+
         // Lista som sparar alla användare
         private static List<User> users = new List<User>();
 
