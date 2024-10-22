@@ -19,14 +19,17 @@ namespace FitTrackWPF
     /// </summary>
     public partial class WorkoutsWindow : Window
     {
-        public WorkoutsWindow()
+        UserManager manager;
+
+        public WorkoutsWindow(UserManager manager)
         {
             InitializeComponent();
+            this.manager = manager;
         }
 
         private void btnAddWorkout(object sender, RoutedEventArgs e)
         {
-            AddWorkoutWindow workoutwindow = new AddWorkoutWindow();
+            AddWorkoutWindow workoutwindow = new AddWorkoutWindow(manager);
             workoutwindow.Show();
             this.Close();
 
@@ -35,12 +38,12 @@ namespace FitTrackWPF
         private void btnInfo(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Our goal is to help you reach your personal goals in training. Click on the workouts that you see in the list below and then \"Add Workout.\"." +
-                " If you would like to remove a workout that you didn't do, simply click \"Remove Workout.\"");
+                " If you would like to remove a workout that you didn't do, simply click mark the workout and click \"Remove Workout.\"");
         }
 
         private void btnSignOut(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(manager);
             mainWindow.Show();
             this.Close();
         }

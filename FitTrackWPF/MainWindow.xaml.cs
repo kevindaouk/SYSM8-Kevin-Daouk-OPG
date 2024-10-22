@@ -16,9 +16,20 @@ namespace FitTrackWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        UserManager manager;
+
+        public MainWindow(UserManager manager)
+        {
+            InitializeComponent();
+            this.manager = manager; 
+
+        }
+
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void BtnSignIn(object sender, RoutedEventArgs e)
@@ -27,18 +38,16 @@ namespace FitTrackWPF
             //sparar inmatad username & password i variabler
             string enteredUsername = txtBoxUsername.Text;
             string enteredPassword = txtBoxPassword.Text;
-            string adminUser = "admin";
-            string adminPword = "admin";
-
+            
             // Hämta användaren via UserManager
-            User foundUser = UserManager.GetUser(enteredUsername);
+            User foundUser = manager.GetUser(enteredUsername);
 
-            // Kontrollera om användaren finns och om lösenordet stämmer, eller logga in med admin inlogg
-            if (foundUser != null && foundUser.CheckPassword(enteredPassword) || enteredUsername == adminUser && enteredPassword == adminPword)
+            // Kontrollera om användaren finns och om lösenordet stämmer
+            if (foundUser != null && foundUser.CheckPassword(enteredPassword))
             {
                 MessageBox.Show("Login successful!");
                 // Öppna WorkoutsWindow
-                WorkoutsWindow workoutsWindow = new WorkoutsWindow();
+                WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager);
                 workoutsWindow.Show();
                 this.Close();
             }
@@ -52,7 +61,7 @@ namespace FitTrackWPF
 
         private void BtnRegister(object sender, RoutedEventArgs e)
         {
-            RegisterWindow registerWindow = new RegisterWindow();
+            RegisterWindow registerWindow = new RegisterWindow(manager);
             registerWindow.Show();
             this.Close();
         }

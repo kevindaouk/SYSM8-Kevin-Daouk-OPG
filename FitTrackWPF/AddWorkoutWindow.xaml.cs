@@ -19,9 +19,11 @@ namespace FitTrackWPF
     /// </summary>
     public partial class AddWorkoutWindow : Window
     {
-        public AddWorkoutWindow()
+        UserManager manager;
+        public AddWorkoutWindow(UserManager manager)
         {
             InitializeComponent();
+            this.manager = manager;
         }
 
         private void btnSaveWorkout(object sender, RoutedEventArgs e)
@@ -31,7 +33,7 @@ namespace FitTrackWPF
 
         private void btnCancelWorkout(object sender, RoutedEventArgs e)
         {
-            WorkoutsWindow workoutwindow = new WorkoutsWindow();
+            WorkoutsWindow workoutwindow = new WorkoutsWindow(manager);
             workoutwindow.Show();
             this.Close();
         }

@@ -7,8 +7,25 @@ namespace FitTrackWPF
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+   public partial class App : Application
     {
+        //protected override void OnStartup(StartupEventArgs e)
+        //{
+        //    base.OnStartup(e);
+
+        //    UserManager manager = new UserManager();
+
+        //    MainWindow window = new MainWindow(manager);
+        //    window.Show();
+        //}
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            UserManager manager = new UserManager(); // Skapa UserManager-instans
+            MainWindow window = new MainWindow(manager); // Skapa MainWindow med UserManager
+            window.Show(); // Visa MainWindow
+        }
     }
+
 
 }

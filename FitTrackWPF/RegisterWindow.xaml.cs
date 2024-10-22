@@ -20,10 +20,12 @@ namespace FitTrackWPF
     /// </summary>
     public partial class RegisterWindow : Window
     {
-        public RegisterWindow()
+        private UserManager manager;
+        public RegisterWindow(UserManager manager)
         {
             InitializeComponent();
             LoadCountries();
+            this.manager = manager;
 
         }
 
@@ -64,10 +66,10 @@ namespace FitTrackWPF
                 try
                 {
                     User newUser = new User(userName, passWord, country);
-                    UserManager.AddUser(newUser);
+                    manager.AddUser(newUser);
                     MessageBox.Show("User successfully created!");
 
-                    MainWindow mainWindow = new MainWindow();
+                    MainWindow mainWindow = new MainWindow(manager);
                     mainWindow.Show();
                     this.Close();
                 }
@@ -83,7 +85,7 @@ namespace FitTrackWPF
         //Ifall man vill avbryta registrering och gå tillbaka till första sidan.
         private void BtnCancel(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(manager);
             mainWindow.Show();
             this.Close();
         }

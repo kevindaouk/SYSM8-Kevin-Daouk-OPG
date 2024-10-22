@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace FitTrackWPF
 {
-    internal class User : Person
+    public class User : Person
     {
         public string Country { get; set; }
 
