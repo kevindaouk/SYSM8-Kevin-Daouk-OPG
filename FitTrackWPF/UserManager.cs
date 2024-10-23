@@ -9,6 +9,8 @@ namespace FitTrackWPF
     public class UserManager
     {
         private static List<User> users;
+        
+        public User CurrentUser { get; private set; } //håller koll på inloggad användare
         public UserManager()
         {
             users = new List<User>();
@@ -36,6 +38,17 @@ namespace FitTrackWPF
         public bool UserExists(string username)
         {
             return users.Any(u => u.Username == username);
+        }
+
+        public bool SignIn(string username, string password)
+        {
+            User user = GetUser(username);
+            if (user != null && user.CheckPassword(password))
+            {
+                CurrentUser = user;
+                return true;
+            }
+            return false;
         }
     }
 }

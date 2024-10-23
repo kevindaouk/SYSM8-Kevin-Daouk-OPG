@@ -10,11 +10,15 @@ namespace FitTrackWPF
     public class User : Person
     {
         public string Country { get; set; }
+        // Använd WorkoutManager för att hantera träningspass
+        public WorkoutManager WorkoutManager { get; private set; }
         
 
         public User(string username, string password, string country) : base(username, password)
         {
             Country = country;
+            // Initiera WorkoutManager för användaren
+            WorkoutManager = new WorkoutManager();
         }
 
 

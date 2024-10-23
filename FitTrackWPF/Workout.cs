@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitTrackWPF
 {
-    internal abstract class Workout
+    public abstract class Workout
     {
         public string Type { get; set; }
         public string Date { get; set; }
