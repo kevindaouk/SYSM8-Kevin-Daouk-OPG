@@ -10,6 +10,7 @@ namespace FitTrackWPF
     public class User : Person
     {
         public string Country { get; set; }
+        
 
         public User(string username, string password, string country) : base(username, password)
         {

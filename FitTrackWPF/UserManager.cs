@@ -16,10 +16,6 @@ namespace FitTrackWPF
             users.Add(new User("user", "user", "Sverige"));
         }
 
-        // Lista som sparar alla användare
-        /*private static List<User> users = new List<User>()*/
-        
-
         // Metod för att lägga till en ny användare
         public void AddUser(User newUser)
         {
