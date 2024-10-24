@@ -18,11 +18,15 @@ namespace FitTrackWPF
     {
 
         UserManager manager;
+        WorkoutManager workouts;
+        
+        
 
-        public MainWindow(UserManager manager)
+        public MainWindow(UserManager manager, WorkoutManager workouts)
         {
             InitializeComponent();
             this.manager = manager; 
+            this.workouts = workouts;
 
         }
 
@@ -45,9 +49,11 @@ namespace FitTrackWPF
             // Kontrollera om användaren finns och om lösenordet stämmer
             if (foundUser != null && foundUser.CheckPassword(enteredPassword))
             {
+                // Sätta den inloggade användaren som CurrentUser
+                manager.CurrentUser = foundUser;
                 MessageBox.Show("Login successful!");
                 // Öppna WorkoutsWindow
-                WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager);
+                WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, workouts);
                 workoutsWindow.Show();
                 this.Close();
             }

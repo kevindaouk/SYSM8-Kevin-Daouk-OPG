@@ -21,6 +21,7 @@ namespace FitTrackWPF
     public partial class RegisterWindow : Window
     {
         private UserManager manager;
+        WorkoutManager workouts;
         public RegisterWindow(UserManager manager)
         {
             InitializeComponent();
@@ -65,11 +66,13 @@ namespace FitTrackWPF
             {
                 try
                 {
+                    //Skapar ny anvnändare och lägg till i usermanager
                     User newUser = new User(userName, passWord, country);
                     manager.AddUser(newUser);
+                    
                     MessageBox.Show("User successfully created!");
 
-                    MainWindow mainWindow = new MainWindow(manager);
+                    MainWindow mainWindow = new MainWindow(manager, workouts);
                     mainWindow.Show();
                     this.Close();
                 }
@@ -85,7 +88,7 @@ namespace FitTrackWPF
         //Ifall man vill avbryta registrering och gå tillbaka till första sidan.
         private void BtnCancel(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow(manager);
+            MainWindow mainWindow = new MainWindow(manager, workouts);
             mainWindow.Show();
             this.Close();
         }

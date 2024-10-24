@@ -10,17 +10,17 @@
         <StackPanel Margin="20">
             <Label Content="Add a New Workout" FontSize="20" HorizontalAlignment="Center"/>
             <Label Content="Workout Type:"/>
-            
-            <ComboBox x:Name="cmbWorkoutType" Width="200">
+
+            <ComboBox x:Name="cmbWorkoutType" Width="200" SelectionChanged="cmbWorkoutType_SelectionChanged">
                 <ComboBoxItem Content="Cardio"/>
                 <ComboBoxItem Content="Strength"/>
             </ComboBox>
-            
+
             <Label Content="Date:"/>
             <TextBox x:Name="txtWorkoutDate" Width="200"/>
             <Label Content="Duration (minutes):"/>
             <TextBox x:Name="txtWorkoutDuration" Width="200"/>
-            
+
             <StackPanel x:Name="cardioFields" Visibility="Collapsed">
                 <Label Content="Calories Burned:"/>
                 <TextBox x:Name="txtCaloriesBurned" Width="200"/>
@@ -35,8 +35,10 @@
             <Label Content="Notes:"/>
             <TextBox x:Name="txtNotes" Width="200" Height="100"/>
         </StackPanel>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="302,324,0,0" VerticalAlignment="Top" Click="btnSaveWorkout"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="452,324,0,0" VerticalAlignment="Top" Click="btnCancelWorkout"/>
+        
+        
+        <Button Content="Save" HorizontalAlignment="Left" Margin="308,55,0,0" VerticalAlignment="Top" Click="btnSaveWorkout"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="439,55,0,0" VerticalAlignment="Top" Click="btnCancelWorkout"/>
 
     </Grid>
 </Window>

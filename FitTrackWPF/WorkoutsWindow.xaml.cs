@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,16 +21,20 @@ namespace FitTrackWPF
     public partial class WorkoutsWindow : Window
     {
         UserManager manager;
+        WorkoutManager workouts;
 
-        public WorkoutsWindow(UserManager manager)
+        public WorkoutsWindow(UserManager manager, WorkoutManager workouts)
         {
             InitializeComponent();
             this.manager = manager;
-        }
+            this.workouts = workouts;
+         }
+
+        
 
         private void btnAddWorkout(object sender, RoutedEventArgs e)
         {
-            AddWorkoutWindow workoutwindow = new AddWorkoutWindow(manager);
+            AddWorkoutWindow workoutwindow = new AddWorkoutWindow(manager, workouts);
             workoutwindow.Show();
             this.Close();
 
@@ -43,7 +48,8 @@ namespace FitTrackWPF
 
         private void btnSignOut(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow(manager);
+            manager.CurrentUser = null;
+            MainWindow mainWindow = new MainWindow(manager, workouts);
             mainWindow.Show();
             this.Close();
         }

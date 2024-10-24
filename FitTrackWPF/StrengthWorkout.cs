@@ -11,10 +11,19 @@ namespace FitTrackWPF
     {
         public int Repetitions { get; set; }
         public int Sets { get; set; }
+        public string WorkoutType { get; }
+        public string WorkoutDate { get; }
+        public int Repetition { get; }
 
-        public StrengthWorkout(string type, string date, int duration, int repetitions, int sets, string notes) : base(type, date, duration, notes)
+        //public StrengthWorkout(string type, string date, int duration, int repetitions, int sets, string notes) : base(type, date, duration, notes)
+        //{
+        //    Repetitions = repetitions;
+        //    Sets = sets;
+        //}
+
+        public StrengthWorkout(string Type, string Date, int duration, int repetition, int sets, string notes) : base(Type, Date, duration, notes)
         {
-            Repetitions = repetitions;
+            Repetition = repetition;
             Sets = sets;
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,22 +10,24 @@ namespace FitTrackWPF
     public class WorkoutManager
     {
         //Lista för att lagra workouts
-        private List<Workout> workouts;
+        public ObservableCollection<Workout> WorkoutsCollection { get; private set; }
 
         public WorkoutManager()
         {
-            workouts = new List<Workout>();
+            WorkoutsCollection = new ObservableCollection<Workout>();
+            
         }
 
         //Lägg till ett träningspass i listan
         public void AddWorkout(Workout workout)
         {
-            workouts.Add(workout);
+            WorkoutsCollection.Add(workout);
         }
 
-        public List<Workout> GetAllWorkouts()
+        // Ta bort ett träningspass från ObservableCollection (om det behövs)
+        public void RemoveWorkout(Workout workout)
         {
-            return workouts;    
+            WorkoutsCollection.Remove(workout);
         }
     }
 }

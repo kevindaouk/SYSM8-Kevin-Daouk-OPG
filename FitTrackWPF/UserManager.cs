@@ -10,7 +10,7 @@ namespace FitTrackWPF
     {
         private static List<User> users;
         
-        public User CurrentUser { get; private set; } //håller koll på inloggad användare
+        public User CurrentUser { get; set; } //håller koll på inloggad användare
         public UserManager()
         {
             users = new List<User>();
