@@ -30,7 +30,7 @@ namespace FitTrackWPF
 
         private void btnSaveWorkout(object sender, RoutedEventArgs e)
         {
-            string workoutType = cmbWorkoutType.Text;
+            string workoutType = cmbWorkoutType.Text;   
             string workoutDate = txtWorkoutDate.Text;
             bool isDurationValid = int.TryParse(txtWorkoutDuration.Text, out int duration);
             string notes = txtNotes.Text;
@@ -110,11 +110,14 @@ namespace FitTrackWPF
                 {
                     cardioFields.Visibility = Visibility.Visible;
                     strengthFields.Visibility = Visibility.Collapsed;
+                    //
+                    imgWorkout.Source = new BitmapImage(new Uri("C:\\Users\\kevin\\source\\repos\\FitTrackWPF\\FitTrackWPF\\Images\\cardio.jpg"));
                 }
                 else if (selectedWorkoutType == "Strength")
                 {
                     strengthFields.Visibility = Visibility.Visible;
                     cardioFields.Visibility = Visibility.Collapsed;
+                    imgWorkout.Source = new BitmapImage(new Uri("C:\\Users\\kevin\\source\\repos\\FitTrackWPF\\FitTrackWPF\\Images\\TrainingImage.jpg"));
                 }
                 else
                 {

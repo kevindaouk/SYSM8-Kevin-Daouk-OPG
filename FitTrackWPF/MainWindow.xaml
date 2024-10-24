@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Image Source="Images/TrainingImage4.jpg" Margin="131,87,131,-21" />
+        <Image Source="Images/TrainingImage4.jpg" Margin="131,87,131,-21"/>
         <StackPanel>
             <Label Content="FitTrack" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="60" FontFamily="Candara" FontWeight="Bold"/>
             <Label Content="Username" HorizontalAlignment="Center"/>

@@ -9,12 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\cardio.jpg" />
     <None Remove="Images\FrankZane.jpg" />
+    <None Remove="Images\TrainingImage.jpg" />
     <None Remove="Images\TrainingImage4.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\cardio.jpg" />
     <Resource Include="Images\FrankZane.jpg" />
+    <Resource Include="Images\TrainingImage.jpg" />
     <Resource Include="Images\TrainingImage4.jpg" />
   </ItemGroup>
 
