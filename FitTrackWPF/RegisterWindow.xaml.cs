@@ -72,6 +72,9 @@ namespace FitTrackWPF
                     
                     MessageBox.Show("User successfully created!");
 
+                    // Skapa ett nytt WorkoutManager-objekt eftersom den här användaren inte har några workouts ännu
+                    workouts = new WorkoutManager();
+
                     MainWindow mainWindow = new MainWindow(manager, workouts);
                     mainWindow.Show();
                     this.Close();

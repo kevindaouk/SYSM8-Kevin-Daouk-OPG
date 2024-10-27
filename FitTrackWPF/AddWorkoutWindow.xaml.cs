@@ -80,7 +80,7 @@ namespace FitTrackWPF
                 MessageBox.Show("Workout added!");
 
                 // Gå tillbaka till WorkoutsWindow
-                WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, workouts);
+                WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, manager.CurrentUser.WorkoutManager);
                 workoutsWindow.Show();
                 this.Close();
             }
@@ -110,7 +110,6 @@ namespace FitTrackWPF
                 {
                     cardioFields.Visibility = Visibility.Visible;
                     strengthFields.Visibility = Visibility.Collapsed;
-                    //
                     imgWorkout.Source = new BitmapImage(new Uri("C:\\Users\\kevin\\source\\repos\\FitTrackWPF\\FitTrackWPF\\Images\\cardio.jpg"));
                 }
                 else if (selectedWorkoutType == "Strength")

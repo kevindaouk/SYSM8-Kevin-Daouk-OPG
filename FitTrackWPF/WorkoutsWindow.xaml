@@ -9,11 +9,11 @@
     <Grid>
         <Button Content="Add Workout" HorizontalAlignment="Left" Margin="26,151,0,0" VerticalAlignment="Top" Click="btnAddWorkout" Background="LightGreen"/>
         <Button Content="UserDetails" HorizontalAlignment="Left" Margin="0,44,0,0" VerticalAlignment="Top"/>
-        <Button Content="Details" HorizontalAlignment="Left" Margin="0,85,0,0" VerticalAlignment="Top"/>
-        <Button Content="Remove Workout" HorizontalAlignment="Left" Margin="224,151,0,0" VerticalAlignment="Top" Background="Crimson"/>
-        <Button Content="Info" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Click="btnInfo"/>
+        <Button Content="Workout Details" HorizontalAlignment="Left" Margin="26,375,0,0" VerticalAlignment="Top" Click="btnDetails"/>
+        <Button Content="Remove Workout" HorizontalAlignment="Left" Margin="224,151,0,0" VerticalAlignment="Top" Background="Crimson" Click="btnRemoveWorkout"/>
+        <Button Content="About us" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Click="btnInfo"/>
         <Button Content="Sign out" HorizontalAlignment="Left" Margin="703,375,0,0" VerticalAlignment="Top" Click="btnSignOut"/>
-        <ListBox x:Name="lstWorkouts" Width="300" Height="150" HorizontalAlignment="Left" Margin="26,185,0,49"/>
+        <ListBox x:Name="lstWorkouts" Width="300" Height="150" HorizontalAlignment="Left" Margin="26,185,0,49" ItemsSource="{Binding WorkoutsCollection}" DisplayMemberPath="Type"/>
 
     </Grid>
 </Window>

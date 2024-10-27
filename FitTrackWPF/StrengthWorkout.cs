@@ -15,12 +15,6 @@ namespace FitTrackWPF
         public string WorkoutDate { get; }
         public int Repetition { get; }
 
-        //public StrengthWorkout(string type, string date, int duration, int repetitions, int sets, string notes) : base(type, date, duration, notes)
-        //{
-        //    Repetitions = repetitions;
-        //    Sets = sets;
-        //}
-
         public StrengthWorkout(string Type, string Date, int duration, int repetition, int sets, string notes) : base(Type, Date, duration, notes)
         {
             Repetition = repetition;

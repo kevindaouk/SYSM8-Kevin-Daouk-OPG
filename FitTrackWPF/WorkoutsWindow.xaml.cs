@@ -28,9 +28,20 @@ namespace FitTrackWPF
             InitializeComponent();
             this.manager = manager;
             this.workouts = workouts;
-         }
 
-        
+            // Få WorkoutManager från den inloggade användaren
+            if (manager.CurrentUser != null)
+            {
+                this.workouts = manager.CurrentUser.WorkoutManager;
+            }
+            else
+            {
+                this.workouts = workouts ?? new WorkoutManager();
+            }
+
+            DataContext = workouts;
+            
+         }
 
         private void btnAddWorkout(object sender, RoutedEventArgs e)
         {
@@ -48,10 +59,36 @@ namespace FitTrackWPF
 
         private void btnSignOut(object sender, RoutedEventArgs e)
         {
+            //Nollställer curentuser till null vid utloggning
             manager.CurrentUser = null;
             MainWindow mainWindow = new MainWindow(manager, workouts);
             mainWindow.Show();
             this.Close();
+        }
+
+        private void btnRemoveWorkout(object sender, RoutedEventArgs e)
+        {
+            // Ta bort det träningspass som användaren har valt
+            if (lstWorkouts.SelectedItem is Workout selectedWorkout)
+            {
+                workouts.RemoveWorkout(selectedWorkout);
+            }
+            else
+            {
+                MessageBox.Show("Please select a workout to remove.");
+            }
+        }
+
+        private void btnDetails(object sender, RoutedEventArgs e)
+        {
+            if (lstWorkouts.SelectedItem is Workout selectedWorkout)
+            {
+                selectedWorkout.DisplayDetails();
+            }
+            else
+            {
+                MessageBox.Show("Please select a workout to view details.");
+            }
         }
     }
 }
