@@ -83,12 +83,15 @@ namespace FitTrackWPF
         {
             if (lstWorkouts.SelectedItem is Workout selectedWorkout)
             {
-                selectedWorkout.DisplayDetails();
+                WorkoutDetailsWindow detailsWindow = new WorkoutDetailsWindow(selectedWorkout, manager, workouts);
+                detailsWindow.Show();
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Please select a workout to view details.");
             }
+
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace FitTrackWPF
 {
@@ -19,7 +20,21 @@ namespace FitTrackWPF
 
         public override void DisplayDetails()
         {
-            MessageBox.Show($"Cardio Workout Details:\nType: {Type}\nDate: {Date}\nDuration: {Duration} minutes\nCalories Burned: {CaloriesBurned}\nNotes: {Notes}");
+           
+        }
+
+        public void DisplayDetails(
+        ComboBox cmbWorkoutType,
+        TextBox txtWorkoutDate,
+        TextBox txtWorkoutDuration,
+        TextBox txtNotes,
+        TextBox txtCaloriesBurned)
+        {
+            cmbWorkoutType.SelectedItem = cmbWorkoutType.Items.OfType<ComboBoxItem>().FirstOrDefault(item => (string)item.Content == "Cardio");
+            txtWorkoutDate.Text = Date;
+            txtWorkoutDuration.Text = Duration.ToString();
+            txtNotes.Text = Notes;
+            txtCaloriesBurned.Text = CaloriesBurned.ToString();
         }
     }
 }

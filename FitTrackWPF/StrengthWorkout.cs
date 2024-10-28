@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace FitTrackWPF
 {
@@ -13,17 +14,31 @@ namespace FitTrackWPF
         public int Sets { get; set; }
         public string WorkoutType { get; }
         public string WorkoutDate { get; }
-        public int Repetition { get; }
-
-        public StrengthWorkout(string Type, string Date, int duration, int repetition, int sets, string notes) : base(Type, Date, duration, notes)
+        
+        public StrengthWorkout(string Type, string Date, int duration, int repetitions, int sets, string notes) : base(Type, Date, duration, notes)
         {
-            Repetition = repetition;
+            Repetitions = repetitions;
             Sets = sets;
         }
-
         public override void DisplayDetails()
         {
-            MessageBox.Show($"Strength Workout Details:\nType: {Type}\nDate: {Date}\nDuration: {Duration} minutes\nRepetitions: {Repetitions}\nSets: {Sets}\nNotes: {Notes}");
+           
+        }
+
+        public void DisplayDetails(
+            ComboBox cmbWorkoutType,
+            TextBox txtWorkoutDate,
+            TextBox txtWorkoutDuration,
+            TextBox txtNotes,
+            TextBox txtRepetition,
+            TextBox txtSets)
+        {
+            cmbWorkoutType.SelectedItem = cmbWorkoutType.Items.OfType<ComboBoxItem>().FirstOrDefault(item => (string)item.Content == "Strength");
+            txtWorkoutDate.Text = Date;
+            txtWorkoutDuration.Text = Duration.ToString();
+            txtNotes.Text = Notes;
+            txtRepetition.Text = Repetitions.ToString();
+            txtSets.Text = Sets.ToString();
         }
     }
 }

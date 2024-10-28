@@ -1,0 +1,43 @@
+﻿<Window x:Class="FitTrackWPF.WorkoutDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FitTrackWPF"
+        mc:Ignorable="d"
+        Title="WorkoutDetailsWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="20">
+            <Label Content="Workout Details" FontSize="20" HorizontalAlignment="Center"/>
+            <Label Content="Workout Type:"/>
+            <ComboBox x:Name="cmbWorkoutType" Width="200">
+                <ComboBoxItem Content="Cardio"/>
+                <ComboBoxItem Content="Strength"/>
+            </ComboBox>
+
+            <Label Content="Date:"/>
+            <TextBox x:Name="txtWorkoutDate" Width="200" IsReadOnly="True"/>
+            <Label Content="Duration (minutes):"/>
+            <TextBox x:Name="txtWorkoutDuration" Width="200" IsReadOnly="True"/>
+
+            <StackPanel x:Name="cardioFields" Visibility="Collapsed">
+                <Label Content="Calories Burned:"/>
+                <TextBox x:Name="txtCaloriesBurned" Width="200" IsReadOnly="True"/>
+            </StackPanel>
+
+            <StackPanel x:Name="strengthFields" Visibility="Collapsed">
+                <Label Content="Repetitions:"/>
+                <TextBox x:Name="txtRepetitions" Width="200" IsReadOnly="False"/>
+                <Label Content="Sets:"/>
+                <TextBox x:Name="txtSets" Width="200" IsReadOnly="True"/>
+            </StackPanel>
+            <Label Content="Notes:"/>
+            <TextBox x:Name="txtNotes" Width="200" Height="79" IsReadOnly="True"/>
+        </StackPanel>
+
+        <Button Content="Save" HorizontalAlignment="Left" Margin="308,55,0,0" VerticalAlignment="Top" Click="btnSaveDetails"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="463,55,0,0" VerticalAlignment="Top" Click="btnCancelDetails"/>
+        <Button Content="Edit" HorizontalAlignment="Center" Margin="0,55,0,0" VerticalAlignment="Top" Click="btnEditDetails"/>
+
+    </Grid>
+</Window>

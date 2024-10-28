@@ -57,16 +57,16 @@ namespace FitTrackWPF
             }
             else if (workoutType == "Strength")
             {
-                bool isRepetitionValid = int.TryParse(txtRepetitions.Text, out int repetition);
+                bool isRepetitionsValid = int.TryParse(txtRepetitions.Text, out int repetitions);
                 bool isSetsValid = int.TryParse(txtSets.Text, out int sets);
 
-                if (!isRepetitionValid || !isSetsValid)
+                if (!isRepetitionsValid || !isSetsValid)
                 {
                     MessageBox.Show("Please fill in repetitions and sets");
                     return;
                 }
                 //Skapar strengthworkout
-                newWorkout = new StrengthWorkout(workoutType, workoutDate, duration, repetition, sets, notes);
+                newWorkout = new StrengthWorkout(workoutType, workoutDate, duration, repetitions, sets, notes);
             }
             else
             {
