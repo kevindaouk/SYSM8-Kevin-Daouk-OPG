@@ -30,5 +30,10 @@ namespace FitTrackWPF
         {
             Password = newPassword;
         }
+
+        public void UpdateUsername(string username)
+        {
+            Username = username;
+        }
     }
 }

@@ -15,8 +15,8 @@ namespace FitTrackWPF
         public UserManager()
         {
             users = new List<User>();
-            users.Add(new AdminUser("admin", "admin", "Sverige"));
-            users.Add(new User("user", "user", "Sverige"));
+            users.Add(new AdminUser("admin", "admin", "Sweden"));
+            users.Add(new User("user", "user", "Sweden"));
 
         }
 

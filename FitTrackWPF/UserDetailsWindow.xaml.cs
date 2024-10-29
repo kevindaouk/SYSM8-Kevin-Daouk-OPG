@@ -32,9 +32,12 @@ namespace FitTrackWPF
             txtBoxCurrentUsername.IsReadOnly = true;
             if (manager.CurrentUser != null && !string.IsNullOrEmpty(manager.CurrentUser.Country))
             {
+                //Sätter textbox användarnamn och cmbboxcountry till dens nuvarande värde
                 txtBoxCurrentUsername.Text = manager.CurrentUser.Username;
                 CmbBoxCountry.SelectedItem = manager.CurrentUser.Country;
             }
+
+
            
             
         }
@@ -54,20 +57,79 @@ namespace FitTrackWPF
 
         private void btnSave(object sender, RoutedEventArgs e)
         {
+            // Hämta inmatade värden från fälten
             string newUsername = txtBoxNewUsername.Text;
             string newPassword = txtBoxNewPassword.Text;
             string confirmPassword = txtBoxConfirmPassword.Text;
             string newCountry = CmbBoxCountry.SelectedItem as string;
 
-            if (newPassword  == confirmPassword)
+            bool updated = false; // Håller koll på om något faktiskt har ändrats
+
+            // Validering och uppdatering av användarnamn
+            if (!string.IsNullOrEmpty(newUsername) && newUsername != manager.CurrentUser.Username)
             {
-                manager.CurrentUser.UpdatePassword(newPassword);
-                MessageBox.Show("Password changed successfully!");
+                if (newUsername.Length >= 3)
+                {
+                    if (!manager.UserExists(newUsername))
+                    {
+                        manager.CurrentUser.Username = newUsername;
+                        updated = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username is already taken.");
+                        return; // Avbryt om användarnamnet är upptaget
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Username must be at least 3 characters long.");
+                    return; // Avbryt om användarnamnet är för kort
+                }
+            }
+
+            // Validering och uppdatering av lösenord
+            if (!string.IsNullOrEmpty(newPassword))
+            {
+                if (newPassword == confirmPassword && newPassword.Length >= 5)
+                {
+                    manager.CurrentUser.UpdatePassword(newPassword);
+                    updated = true;
+                }
+                else if (newPassword.Length < 5)
+                {
+                    MessageBox.Show("Password must contain at least 5 characters.");
+                    return; // Avbryt om lösenordet är för kort
+                }
+                else
+                {
+                    MessageBox.Show("Passwords do not match, please try again!");
+                    return; // Avbryt om lösenorden inte stämmer överens
+                }
+            }
+
+            // Uppdatering av land
+            if (!string.IsNullOrEmpty(newCountry) && newCountry != manager.CurrentUser.Country)
+            {
+                manager.CurrentUser.Country = newCountry;
+                updated = true;
+            }
+
+            // Om något faktiskt ändrades, visa ett meddelande
+            if (updated)
+            {
+                MessageBox.Show("Account details updated successfully.");
             }
             else
             {
-                MessageBox.Show("Password does not match, try again!");
+                MessageBox.Show("No changes were made.");
             }
+
+            // Stäng fönstret och återgå till WorkoutsWindow
+            WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, manager.CurrentUser.WorkoutManager);
+            workoutsWindow.Show();
+            this.Close();
+
         }
 
         private void btnCancel(object sender, RoutedEventArgs e)
