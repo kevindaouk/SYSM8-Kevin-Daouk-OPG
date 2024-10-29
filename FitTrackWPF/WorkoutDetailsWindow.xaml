@@ -5,39 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitTrackWPF"
         mc:Ignorable="d"
-        Title="WorkoutDetailsWindow" Height="450" Width="800">
+        Title="WorkoutDetailsWindow" Height="450" Width="800" Background="LightGray">
     <Grid>
-        <StackPanel Margin="20">
-            <Label Content="Workout Details" FontSize="20" HorizontalAlignment="Center"/>
-            <Label Content="Workout Type:"/>
-            <ComboBox x:Name="cmbWorkoutType" Width="200">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="20">
+                <Label Content="Workout Details" FontSize="30" FontFamily="Candara" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <Label Content="Review and update your workout details below." FontFamily="Arial" FontSize="15"/>
+                <Label Content="Workout Type:"/>
+                <ComboBox x:Name="cmbWorkoutType" Width="200" HorizontalAlignment="Left">
                 <ComboBoxItem Content="Cardio"/>
                 <ComboBoxItem Content="Strength"/>
-            </ComboBox>
+                </ComboBox>
 
-            <Label Content="Date:"/>
-            <TextBox x:Name="txtWorkoutDate" Width="200" IsReadOnly="True"/>
-            <Label Content="Duration (minutes):"/>
-            <TextBox x:Name="txtWorkoutDuration" Width="200" IsReadOnly="True"/>
+                <Label Content="Date:"/>
+                <TextBox x:Name="txtWorkoutDate" Width="200" HorizontalAlignment="Left" IsReadOnly="True"/>
+                <Label Content="Duration (minutes):"/>
+                <TextBox x:Name="txtWorkoutDuration" Width="200" HorizontalAlignment="Left" IsReadOnly="True"/>
 
-            <StackPanel x:Name="cardioFields" Visibility="Collapsed">
+                <StackPanel x:Name="cardioFields" Visibility="Collapsed">
                 <Label Content="Calories Burned:"/>
-                <TextBox x:Name="txtCaloriesBurned" Width="200" IsReadOnly="True"/>
-            </StackPanel>
+                <TextBox x:Name="txtCaloriesBurned" Width="200" HorizontalAlignment="Left" IsReadOnly="True"/>
+                </StackPanel>
 
-            <StackPanel x:Name="strengthFields" Visibility="Collapsed">
+                <StackPanel x:Name="strengthFields" Visibility="Collapsed">
                 <Label Content="Repetitions:"/>
-                <TextBox x:Name="txtRepetitions" Width="200" IsReadOnly="False"/>
+                <TextBox x:Name="txtRepetitions" Width="200" HorizontalAlignment="Left" IsReadOnly="True"/>
                 <Label Content="Sets:"/>
-                <TextBox x:Name="txtSets" Width="200" IsReadOnly="True"/>
+                <TextBox x:Name="txtSets" Width="200" HorizontalAlignment="Left" IsReadOnly="True"/>
+                </StackPanel>
+
+                <Label Content="Notes:"/>
+                <TextBox x:Name="txtNotes" Width="200" Height="100" HorizontalAlignment="Left" IsReadOnly="True"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Left">
+                <Button Content="Save" Width="100" Margin="0,0,10,0" Click="btnSaveDetails"/>
+                <Button Content="Cancel" Width="100" Margin="0,0,10,0" Click="btnCancelDetails"/>
+                <Button Content="Edit" Width="100" Click="btnEditDetails"/>
+                </StackPanel>
             </StackPanel>
-            <Label Content="Notes:"/>
-            <TextBox x:Name="txtNotes" Width="200" Height="63" IsReadOnly="True"/>
-        </StackPanel>
-
-        <Button Content="Save" HorizontalAlignment="Left" Margin="308,55,0,0" VerticalAlignment="Top" Click="btnSaveDetails"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="463,55,0,0" VerticalAlignment="Top" Click="btnCancelDetails"/>
-        <Button Content="Edit" HorizontalAlignment="Center" Margin="0,55,0,0" VerticalAlignment="Top" Click="btnEditDetails"/>
-
+        </ScrollViewer>
     </Grid>
 </Window>

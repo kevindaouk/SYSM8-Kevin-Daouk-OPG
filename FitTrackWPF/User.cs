@@ -13,6 +13,7 @@ namespace FitTrackWPF
         // Använd WorkoutManager för att hantera träningspass
         public WorkoutManager WorkoutManager { get; private set; }
         
+        public List<Workout> Workouts { get;  set; }
 
         public User(string username, string password, string country) : base(username, password)
         {
@@ -26,5 +27,7 @@ namespace FitTrackWPF
         {
             MessageBox.Show("Successfully login");
         }
+        
+        
     }
 }

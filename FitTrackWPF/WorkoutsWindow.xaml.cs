@@ -20,9 +20,9 @@ namespace FitTrackWPF
     /// </summary>
     public partial class WorkoutsWindow : Window
     {
-        UserManager manager;
-        WorkoutManager workouts;
-
+        public UserManager manager;
+        public WorkoutManager workouts;
+       
         public WorkoutsWindow(UserManager manager, WorkoutManager workouts)
         {
             InitializeComponent();
@@ -33,6 +33,7 @@ namespace FitTrackWPF
             if (manager.CurrentUser != null)
             {
                 this.workouts = manager.CurrentUser.WorkoutManager;
+                //KAN LÄGGAS IN EN WORKOUT manager.currentuser.workout.add
             }
             else
             {
@@ -40,7 +41,7 @@ namespace FitTrackWPF
             }
 
             DataContext = workouts;
-            
+           
          }
 
         private void btnAddWorkout(object sender, RoutedEventArgs e)

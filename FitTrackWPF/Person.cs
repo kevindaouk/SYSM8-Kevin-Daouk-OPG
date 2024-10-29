@@ -26,5 +26,9 @@ namespace FitTrackWPF
 
         public abstract void SignIn();
         
+        public void UpdatePassword(string newPassword)
+        {
+            Password = newPassword;
+        }
     }
 }

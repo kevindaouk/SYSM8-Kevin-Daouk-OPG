@@ -17,6 +17,7 @@ namespace FitTrackWPF
             users = new List<User>();
             users.Add(new AdminUser("admin", "admin", "Sverige"));
             users.Add(new User("user", "user", "Sverige"));
+
         }
 
         // Metod för att lägga till en ny användare

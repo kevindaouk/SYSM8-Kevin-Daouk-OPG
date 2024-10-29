@@ -15,13 +15,13 @@
             <Label Content="New Username:"/>
             <TextBox HorizontalAlignment="Left" x:Name="txtBoxNewUsername" Width="200"/>
             <Label Content="New Password:"/>
-            <PasswordBox HorizontalAlignment="Left" x:Name="pwdBoxNewPassword" Width="200"/>
+            <TextBox HorizontalAlignment="Left" x:Name="txtBoxNewPassword" Width="200"/>
             <Label Content="Confirm Password:"/>
-            <PasswordBox HorizontalAlignment="Left" x:Name="pwdBoxConfirmPassword" Width="200"/>
+            <TextBox HorizontalAlignment="Left" x:Name="txtBoxConfirmPassword" Width="200"/>
             <Label Content="Country:"/>
             <ComboBox x:Name="CmbBoxCountry" Width="200" HorizontalAlignment="Left"/>
 
-            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+            <StackPanel Orientation="Horizontal" Margin="0,10">
                 <Button Content="Save" HorizontalAlignment="Left" Width="100" Margin="0,0,10,0" Click="btnSave"/>
                 <Button Content="Cancel" HorizontalAlignment="Left" Width="100" Click="btnCancel"/>
             </StackPanel>

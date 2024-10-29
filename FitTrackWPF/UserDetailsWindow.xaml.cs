@@ -22,7 +22,7 @@ namespace FitTrackWPF
     {
         UserManager manager;
         WorkoutManager workouts;
-
+        
         public UserDetailsWindow(UserManager manager, WorkoutManager workouts)
         {
             InitializeComponent();
@@ -54,7 +54,20 @@ namespace FitTrackWPF
 
         private void btnSave(object sender, RoutedEventArgs e)
         {
+            string newUsername = txtBoxNewUsername.Text;
+            string newPassword = txtBoxNewPassword.Text;
+            string confirmPassword = txtBoxConfirmPassword.Text;
+            string newCountry = CmbBoxCountry.SelectedItem as string;
 
+            if (newPassword  == confirmPassword)
+            {
+                manager.CurrentUser.UpdatePassword(newPassword);
+                MessageBox.Show("Password changed successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Password does not match, try again!");
+            }
         }
 
         private void btnCancel(object sender, RoutedEventArgs e)
