@@ -45,6 +45,7 @@ namespace FitTrackWPF
             // Gör alla fält skrivskyddade tills man trycker på Edit
             LockFields();
         }
+        //Metod som gör alla txtboxar låsta
         private void LockFields()
         {
             cmbWorkoutType.IsEnabled = false;
@@ -55,7 +56,7 @@ namespace FitTrackWPF
             txtRepetitions.IsReadOnly = true;
             txtSets.IsReadOnly = true;
         }
-
+        //Metod som låser upp alla txtboxar 
         private void UnlockFields()
         {
             cmbWorkoutType.IsEnabled = true;
@@ -74,9 +75,7 @@ namespace FitTrackWPF
             // Lås upp alla fält för redigering med min metod
             UnlockFields();
 
-            // Aktivera "Save" knappen
-            //btnSaveDetails.IsEnabled = true;
-        }
+         }
 
         private void btnCancelDetails(object sender, RoutedEventArgs e)
         {

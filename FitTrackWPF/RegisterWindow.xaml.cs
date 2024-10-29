@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Globalization;
+using System.Globalization; //innehåller klasserna CultureInfo och RegionInfo, som används i koden för att hämta specifika kulturer och sedan extrahera länderna.
 
 namespace FitTrackWPF
 {
@@ -32,7 +32,7 @@ namespace FitTrackWPF
 
         private void LoadCountries()
         {
-            // Hämta alla specifika kulturer från System.Globalization och skapa en lista över alla unika länder.
+            // Hämtar en lista över alla unika länder på engelska och sorterar dem i alfabetisk ordning..
             var countries = CultureInfo.GetCultures(CultureTypes.SpecificCultures)
                                        .Select(culture => new RegionInfo(culture.Name).EnglishName)
                                        .Distinct()

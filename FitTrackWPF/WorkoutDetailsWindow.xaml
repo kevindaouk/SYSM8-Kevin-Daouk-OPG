@@ -32,7 +32,7 @@
                 <TextBox x:Name="txtSets" Width="200" IsReadOnly="True"/>
             </StackPanel>
             <Label Content="Notes:"/>
-            <TextBox x:Name="txtNotes" Width="200" Height="79" IsReadOnly="True"/>
+            <TextBox x:Name="txtNotes" Width="200" Height="63" IsReadOnly="True"/>
         </StackPanel>
 
         <Button Content="Save" HorizontalAlignment="Left" Margin="308,55,0,0" VerticalAlignment="Top" Click="btnSaveDetails"/>

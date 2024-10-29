@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace FitTrackWPF
 {
@@ -14,16 +15,19 @@ namespace FitTrackWPF
         public UserManager()
         {
             users = new List<User>();
-            users.Add(new User("admin", "admin", "Sverige"));
+            users.Add(new AdminUser("admin", "admin", "Sverige"));
             users.Add(new User("user", "user", "Sverige"));
         }
 
         // Metod för att lägga till en ny användare
         public void AddUser(User newUser)
         {
+            //Any() är en metod som går igenom listan users och kontrollerar om något objekt uppfyller villkoret.
+            //kontrollerar om någon användare (u) har samma användarnamn (u.Username) som användarnamnet på den nya användaren (newUser.Username).
             if (users.Any(u => u.Username == newUser.Username))
             {
-                throw new InvalidOperationException("Username is already taken.");
+                MessageBox.Show("Username is already taken.");
+                return;
             }
             users.Add(newUser);
         }

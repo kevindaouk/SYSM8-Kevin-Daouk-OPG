@@ -7,38 +7,43 @@
         mc:Ignorable="d"
         Title="AddWorkoutWindow" Height="450" Width="800" Background="LightGray">
     <Grid>
-        <StackPanel Margin="20">
-            <Label Content="Add a New Workout" FontSize="20" HorizontalAlignment="Center"/>
-            <Label Content="Workout Type:"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Margin="20">
+                <Label Content="Add a New Workout" FontSize="30" FontFamily="Candara" FontWeight="Bold"/>
+                <Label Content="Enter details for your workout below." FontFamily="Arial" FontSize="15"/>
 
-            <ComboBox x:Name="cmbWorkoutType" Width="200" SelectionChanged="cmbWorkoutType_SelectionChanged">
-                <ComboBoxItem Content="Cardio"/>
-                <ComboBoxItem Content="Strength"/>
-            </ComboBox>
+                <Label Content="Workout Type:"/>
+                <ComboBox x:Name="cmbWorkoutType" Width="200" HorizontalAlignment="Left" SelectionChanged="cmbWorkoutType_SelectionChanged">
+                    <ComboBoxItem Content="Cardio"/>
+                    <ComboBoxItem Content="Strength"/>
+                </ComboBox>
 
-            <Label Content="Date:"/>
-            <TextBox x:Name="txtWorkoutDate" Width="200"/>
-            <Label Content="Duration (minutes):"/>
-            <TextBox x:Name="txtWorkoutDuration" Width="200"/>
+                <Label Content="Date:"/>
+                <TextBox x:Name="txtWorkoutDate" Width="200" HorizontalAlignment="Left"/>
+                <Label Content="Duration (minutes):"/>
+                <TextBox x:Name="txtWorkoutDuration" Width="200" HorizontalAlignment="Left"/>
 
-            <StackPanel x:Name="cardioFields" Visibility="Collapsed">
-                <Label Content="Calories Burned:"/>
-                <TextBox x:Name="txtCaloriesBurned" Width="200"/>
+                <StackPanel x:Name="cardioFields" Visibility="Collapsed">
+                    <Label Content="Calories Burned:"/>
+                    <TextBox x:Name="txtCaloriesBurned" Width="200" HorizontalAlignment="Left"/>
+                </StackPanel>
+
+                <StackPanel x:Name="strengthFields" Visibility="Collapsed">
+                    <Label Content="Repetitions:"/>
+                    <TextBox x:Name="txtRepetitions" Width="200" HorizontalAlignment="Left"/>
+                    <Label Content="Sets:"/>
+                    <TextBox x:Name="txtSets" Width="200" HorizontalAlignment="Left"/>
+                </StackPanel>
+
+                <Label Content="Notes:"/>
+                <TextBox x:Name="txtNotes" Width="200" Height="63" HorizontalAlignment="Left"/>
+                
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Button Content="Save" HorizontalAlignment="Left" Width="100" Margin="0,0,10,0" Click="btnSaveWorkout"/>
+                    <Button Content="Cancel" HorizontalAlignment="Left" Width="100" Click="btnCancelWorkout"/>
+                </StackPanel>
+
             </StackPanel>
-
-            <StackPanel x:Name="strengthFields" Visibility="Collapsed">
-                <Label Content="Repetitions:"/>
-                <TextBox x:Name="txtRepetitions" Width="200"/>
-                <Label Content="Sets:"/>
-                <TextBox x:Name="txtSets" Width="200"/>
-            </StackPanel>
-            <Label Content="Notes:"/>
-            <TextBox x:Name="txtNotes" Width="200" Height="100"/>
-        </StackPanel>
-        
-        <Image x:Name="imgWorkout" Width="200" Height="200" HorizontalAlignment="Right" Margin="0,20,20,0"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="308,55,0,0" VerticalAlignment="Top" Click="btnSaveWorkout"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="439,55,0,0" VerticalAlignment="Top" Click="btnCancelWorkout"/>
-
+        </ScrollViewer>
     </Grid>
 </Window>

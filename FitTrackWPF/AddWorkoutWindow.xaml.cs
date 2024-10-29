@@ -110,13 +110,13 @@ namespace FitTrackWPF
                 {
                     cardioFields.Visibility = Visibility.Visible;
                     strengthFields.Visibility = Visibility.Collapsed;
-                    imgWorkout.Source = new BitmapImage(new Uri("C:\\Users\\kevin\\source\\repos\\FitTrackWPF\\FitTrackWPF\\Images\\cardio.jpg"));
+                    
                 }
                 else if (selectedWorkoutType == "Strength")
                 {
                     strengthFields.Visibility = Visibility.Visible;
                     cardioFields.Visibility = Visibility.Collapsed;
-                    imgWorkout.Source = new BitmapImage(new Uri("C:\\Users\\kevin\\source\\repos\\FitTrackWPF\\FitTrackWPF\\Images\\TrainingImage.jpg"));
+                    
                 }
                 else
                 {

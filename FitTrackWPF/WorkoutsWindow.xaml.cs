@@ -93,5 +93,12 @@ namespace FitTrackWPF
             }
 
         }
+
+        private void btnUserDetails(object sender, RoutedEventArgs e)
+        {
+            UserDetailsWindow userdetailsWindow = new UserDetailsWindow(manager, workouts);
+            userdetailsWindow.Show();
+            this.Close();
+        }
     }
 }
