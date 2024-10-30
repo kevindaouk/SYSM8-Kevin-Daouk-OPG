@@ -64,26 +64,32 @@ namespace FitTrackWPF
             }
             else
             {
-                try
+                
+                //metod som kollar ifall användarnamnet redan finns sen tidigare
+                if (!manager.UserExists(userName))
                 {
-                    //Skapar ny anvnändare och lägg till i usermanager
+                    // Skapa ny användare och lägg till i userManager
                     User newUser = new User(userName, passWord, country);
                     manager.AddUser(newUser);
-                    
+
                     MessageBox.Show("User successfully created!");
 
-                    // Skapa ett nytt WorkoutManager-objekt eftersom den här användaren inte har några workouts ännu
+                    // Skapa ett nytt WorkoutManager-objekt eftersom den här användaren inte har några träningspass än
                     workouts = new WorkoutManager();
 
+                    // Öppna MainWindow
                     MainWindow mainWindow = new MainWindow(manager, workouts);
                     mainWindow.Show();
                     this.Close();
                 }
-                catch (InvalidOperationException ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Username is taken, try another one!");
                 }
-            }
+            
+            
+        }
+
         
 
 

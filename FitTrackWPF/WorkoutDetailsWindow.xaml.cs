@@ -31,12 +31,14 @@ namespace FitTrackWPF
             // Fyll fälten med information från det valda träningspasset
             if (selectedWorkout is StrengthWorkout strengthWorkout)
             {
+                //fyller fälten med strengthworkout info med hjälp av metod som finns i strengthworkout klass
                 strengthWorkout.DisplayDetails(cmbWorkoutType, txtWorkoutDate, txtWorkoutDuration, txtNotes, txtRepetitions, txtSets);
                 strengthFields.Visibility = Visibility.Visible;
                 cardioFields.Visibility = Visibility.Collapsed;
             }
             else if (selectedWorkout is CardioWorkout cardioWorkout)
             {
+                //fyller fält med cardioworkout info med hjälp av metod som finns i cardioworkout klass
                 cardioWorkout.DisplayDetails(cmbWorkoutType, txtWorkoutDate, txtWorkoutDuration, txtNotes, txtCaloriesBurned);
                 cardioFields.Visibility = Visibility.Visible;
                 strengthFields.Visibility = Visibility.Collapsed;
@@ -74,8 +76,7 @@ namespace FitTrackWPF
         {
             // Lås upp alla fält för redigering med min metod
             UnlockFields();
-
-         }
+        }
 
         private void btnCancelDetails(object sender, RoutedEventArgs e)
         {

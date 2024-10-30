@@ -10,7 +10,7 @@ namespace FitTrackWPF
     public class WorkoutManager
     {
         //Lista för att lagra workouts
-        public ObservableCollection<Workout> WorkoutsCollection { get; private set; }
+        public ObservableCollection<Workout> WorkoutsCollection { get; set; }
 
         public WorkoutManager()
         {

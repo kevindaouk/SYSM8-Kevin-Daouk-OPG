@@ -11,7 +11,7 @@ namespace FitTrackWPF
     {
         public string Country { get; set; }
         // Använd WorkoutManager för att hantera träningspass
-        public WorkoutManager WorkoutManager { get; private set; }
+        public WorkoutManager workoutManager { get; private set; }
         
         public List<Workout> Workouts { get;  set; }
 
@@ -19,7 +19,7 @@ namespace FitTrackWPF
         {
             Country = country;
             // Initiera WorkoutManager för användaren
-            WorkoutManager = new WorkoutManager();
+            workoutManager = new WorkoutManager();
         }
 
 

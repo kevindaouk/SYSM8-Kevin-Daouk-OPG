@@ -70,6 +70,7 @@ namespace FitTrackWPF
             {
                 if (newUsername.Length >= 3)
                 {
+                    //metod som kollar ifall användarnamnet är upptaget
                     if (!manager.UserExists(newUsername))
                     {
                         manager.CurrentUser.Username = newUsername;
@@ -91,6 +92,7 @@ namespace FitTrackWPF
             // Validering och uppdatering av lösenord
             if (!string.IsNullOrEmpty(newPassword))
             {
+                //kollar ifall lösenordet matchar och att det är minst 5 tecken
                 if (newPassword == confirmPassword && newPassword.Length >= 5)
                 {
                     manager.CurrentUser.UpdatePassword(newPassword);
@@ -126,7 +128,7 @@ namespace FitTrackWPF
             }
 
             // Stäng fönstret och återgå till WorkoutsWindow
-            WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, manager.CurrentUser.WorkoutManager);
+            WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, manager.CurrentUser.workoutManager);
             workoutsWindow.Show();
             this.Close();
 

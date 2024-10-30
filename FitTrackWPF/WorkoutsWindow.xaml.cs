@@ -32,7 +32,7 @@ namespace FitTrackWPF
             // Få WorkoutManager från den inloggade användaren
             if (manager.CurrentUser != null)
             {
-                this.workouts = manager.CurrentUser.WorkoutManager;
+                this.workouts = manager.CurrentUser.workoutManager;
                 //KAN LÄGGAS IN EN WORKOUT manager.currentuser.workout.add
             }
             else

@@ -76,11 +76,11 @@ namespace FitTrackWPF
 
             if (manager.CurrentUser != null && newWorkout != null)
             {
-                manager.CurrentUser.WorkoutManager.AddWorkout(newWorkout);
+                manager.CurrentUser.workoutManager.AddWorkout(newWorkout);
                 MessageBox.Show("Workout added!");
 
                 // Gå tillbaka till WorkoutsWindow
-                WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, manager.CurrentUser.WorkoutManager);
+                WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, manager.CurrentUser.workoutManager);
                 workoutsWindow.Show();
                 this.Close();
             }

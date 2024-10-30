@@ -61,7 +61,7 @@ namespace FitTrackWPF
                 manager.CurrentUser = foundUser;
                 MessageBox.Show("Login successful!");
                 // Öppna WorkoutsWindow
-                WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, manager.CurrentUser.WorkoutManager);
+                WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, manager.CurrentUser.workoutManager);
                 workoutsWindow.Show();
                 this.Close();
             }

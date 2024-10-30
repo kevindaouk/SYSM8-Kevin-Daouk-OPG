@@ -15,9 +15,14 @@ namespace FitTrackWPF
         public UserManager()
         {
             users = new List<User>();
-            users.Add(new AdminUser("admin", "admin", "Sweden"));
-            users.Add(new User("user", "user", "Sweden"));
-
+            User user1 = new User("user", "password", "Sweden");
+            user1.workoutManager.AddWorkout(new StrengthWorkout("Strength", "20241030", 60, 20, 10, "Bra dag"));
+            user1.workoutManager.AddWorkout(new CardioWorkout("Cardio", "20241029", 40, 400, "Svettigt pass"));
+            users.Add(user1);
+            //users.Add(new AdminUser("admin", "password", "Sweden"));
+            User user2 = new User("admin", "password", "Sweden");
+            users.Add(user2);
+            
         }
 
         // Metod för att lägga till en ny användare
