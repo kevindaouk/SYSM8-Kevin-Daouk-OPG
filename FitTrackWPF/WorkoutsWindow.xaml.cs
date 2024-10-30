@@ -57,8 +57,8 @@ namespace FitTrackWPF
 
         private void btnInfo(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Our goal is to help you reach your personal goals in training. Click on the workouts that you see in the list below and then \"Add Workout.\"." +
-                " If you would like to remove a workout that you didn't do, simply click mark the workout and click \"Remove Workout.\"");
+            MessageBox.Show("Our goal is to help you reach your personal goals in training. Click on \"Add Workout\" to add workouts." +
+                " If you would like to remove a workout that you didn't do, simply mark the workout and click \"Remove Workout.\"");
         }
 
         private void btnSignOut(object sender, RoutedEventArgs e)
