@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitTrackWPF"
         mc:Ignorable="d"
-        Title="WorkoutDetailsWindow" Height="450" Width="800" Background="LightGray">
+        Title="WorkoutDetailsWindow" Height="500" Width="800" Background="LightGray">
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="20">

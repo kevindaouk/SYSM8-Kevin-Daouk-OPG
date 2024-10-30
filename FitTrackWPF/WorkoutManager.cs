@@ -29,5 +29,8 @@ namespace FitTrackWPF
         {
             WorkoutsCollection.Remove(workout);
         }
+
+
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.ObjectModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -46,11 +47,10 @@ namespace FitTrackWPF
 
         private void BtnSignIn(object sender, RoutedEventArgs e)
         {
-            
-            //sparar inmatad username & password i variabler
+            // sparar inmatad username & password i variabler
             string enteredUsername = txtBoxUsername.Text;
             string enteredPassword = txtBoxPassword.Text;
-            
+
             // Hämta användaren via UserManager
             User foundUser = manager.GetUser(enteredUsername);
 
@@ -60,9 +60,33 @@ namespace FitTrackWPF
                 // Sätta den inloggade användaren som CurrentUser
                 manager.CurrentUser = foundUser;
                 MessageBox.Show("Login successful!");
-                // Öppna WorkoutsWindow
-                WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, manager.CurrentUser.workoutManager);
-                workoutsWindow.Show();
+
+                // Kontrollera om det är admin som loggar in
+                if (foundUser is AdminUser)
+                {
+                    // Samla alla träningspass från alla användare
+                    ObservableCollection<Workout> allWorkouts = new ObservableCollection<Workout>();
+
+                    // Lägg till alla användares träningspass i allWorkouts
+                    foreach (var user in manager.GetAllUsers())
+                    {
+                        foreach (var workout in user.workoutManager.WorkoutsCollection)
+                        {
+                            allWorkouts.Add(workout);
+                        }
+                    }
+
+                    // Öppna WorkoutsWindow för admin och visa alla träningspass
+                    WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, new WorkoutManager { WorkoutsCollection = allWorkouts });
+                    workoutsWindow.Show();
+                }
+                else
+                {
+                    // Öppna WorkoutsWindow för vanlig användare
+                    WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, manager.CurrentUser.workoutManager);
+                    workoutsWindow.Show();
+                }
+
                 this.Close();
             }
             else
@@ -70,7 +94,7 @@ namespace FitTrackWPF
                 MessageBox.Show("Incorrect username or password.");
             }
 
-            
+
         }
 
         private void BtnRegister(object sender, RoutedEventArgs e)

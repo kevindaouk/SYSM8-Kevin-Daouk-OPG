@@ -34,7 +34,7 @@ namespace FitTrackWPF
             {
                 //KAN LÄGGAS IN EN WORKOUT manager.currentuser.workout.add
                 this.workouts = manager.CurrentUser.workoutManager;
-                //Sätter vem som är nuvarande inloggad användare, samt låser txtboxen.
+                //Sätter vem som är nuvarande inloggad användare samt låser txtboxen.
                 txtCurrentInlog.Text = manager.CurrentUser.Username;
                 txtCurrentInlog.IsReadOnly = true;
             }
@@ -72,15 +72,27 @@ namespace FitTrackWPF
 
         private void btnRemoveWorkout(object sender, RoutedEventArgs e)
         {
-            // Ta bort det träningspass som användaren har valt
+            // Ta bort det träningspass som användaren eller admin har valt
             if (lstWorkouts.SelectedItem is Workout selectedWorkout)
             {
-                workouts.RemoveWorkout(selectedWorkout);
+                // Om det är admin som är inloggad, ta bort träningspasset från WorkoutManager
+                if (manager.CurrentUser is AdminUser)
+                {
+                    workouts.RemoveWorkout(selectedWorkout);
+                    MessageBox.Show("Workout successfully removed by admin!");
+                }
+                else
+                {
+                    // Om det är en vanlig användare, ta bort träningspasset från deras WorkoutManager
+                    manager.CurrentUser.workoutManager.RemoveWorkout(selectedWorkout);
+                    MessageBox.Show("Workout successfully removed!");
+                }
             }
             else
             {
                 MessageBox.Show("Please select a workout to remove.");
             }
+
         }
 
         private void btnDetails(object sender, RoutedEventArgs e)
@@ -104,5 +116,6 @@ namespace FitTrackWPF
             userdetailsWindow.Show();
             this.Close();
         }
+    
     }
 }
