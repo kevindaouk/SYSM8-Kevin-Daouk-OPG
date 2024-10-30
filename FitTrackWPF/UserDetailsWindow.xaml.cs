@@ -37,9 +37,6 @@ namespace FitTrackWPF
                 CmbBoxCountry.SelectedItem = manager.CurrentUser.Country;
             }
 
-
-           
-            
         }
 
         private void LoadCountries()

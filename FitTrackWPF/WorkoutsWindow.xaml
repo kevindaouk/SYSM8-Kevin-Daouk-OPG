@@ -15,6 +15,8 @@
         <Button Content="About us" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Click="btnInfo"/>
         <Button Content="Sign out" HorizontalAlignment="Left" Margin="703,375,0,0" VerticalAlignment="Top" Click="btnSignOut"/>
         <ListBox x:Name="lstWorkouts" Width="300" Height="150" HorizontalAlignment="Left" Margin="26,185,0,49" ItemsSource="{Binding WorkoutsCollection}" DisplayMemberPath="Type"/>
+        <Label Content="Logged in as:" HorizontalAlignment="Left" Margin="690,7,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="680,33,0,0" Text="" VerticalAlignment="Top" Width="100" x:Name="txtCurrentInlog"/>
 
     </Grid>
 </Window>
