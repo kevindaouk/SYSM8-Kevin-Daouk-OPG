@@ -90,7 +90,7 @@ namespace FitTrackWPF
         {
             // Uppdatera träningspassets information
             selectedWorkout.Date = txtWorkoutDate.Text;
-
+            // Försök att omvandla "Duration" till en int
             if (int.TryParse(txtWorkoutDuration.Text, out int duration))
             {
                 selectedWorkout.Duration = duration;
@@ -100,11 +100,12 @@ namespace FitTrackWPF
                 MessageBox.Show("Please enter a valid duration.");
                 return;
             }
-
+            // Uppdatera anteckningar för träningspasset
             selectedWorkout.Notes = txtNotes.Text;
 
             if (selectedWorkout is CardioWorkout cardio)
             {
+                // Försök att omvandla "Calories Burned" till en int
                 if (int.TryParse(txtCaloriesBurned.Text, out int caloriesBurned))
                 {
                     cardio.CaloriesBurned = caloriesBurned;
@@ -117,6 +118,7 @@ namespace FitTrackWPF
             }
             else if (selectedWorkout is StrengthWorkout strength)
             {
+                // Försök att omvandla "Repetitions" och "Sets" till int
                 if (int.TryParse(txtRepetitions.Text, out int repetition) && int.TryParse(txtSets.Text, out int sets))
                 {
                     strength.Repetitions = repetition;
@@ -128,7 +130,7 @@ namespace FitTrackWPF
                     return;
                 }
             }
-
+            // Om alla fält uppdaterades utan problem, meddela användaren
             MessageBox.Show("Workout details updated successfully!");
 
             // Gå tillbaka till WorkoutsWindow
