@@ -24,7 +24,7 @@ namespace FitTrackWPF
         {
            
         }
-
+        // Metod för att visa detaljer om ett träningspass i användargränssnittet
         public void DisplayDetails(
             ComboBox cmbWorkoutType,
             TextBox txtWorkoutDate,

@@ -9,16 +9,6 @@ namespace FitTrackWPF
     /// </summary>
    public partial class App : Application
     {
-        //protected override void OnStartup(StartupEventArgs e)
-        //{
-        //    base.OnStartup(e);
-
-        //    UserManager manager = new UserManager();
-
-        //    MainWindow window = new MainWindow(manager);
-        //    window.Show();
-        //}
-
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             WorkoutManager workouts = new WorkoutManager();

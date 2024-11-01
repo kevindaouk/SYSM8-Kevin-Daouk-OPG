@@ -49,6 +49,7 @@ namespace FitTrackWPF
 
         private void btnAddWorkout(object sender, RoutedEventArgs e)
         {
+            //går vidare till addworkout window för att lägga till träningspass
             AddWorkoutWindow workoutwindow = new AddWorkoutWindow(manager, workouts);
             workoutwindow.Show();
             this.Close();
@@ -57,6 +58,7 @@ namespace FitTrackWPF
 
         private void btnInfo(object sender, RoutedEventArgs e)
         {
+            //informations ruta om appen
             MessageBox.Show("Our goal is to help you reach your personal goals in training. Click on \"Add Workout\" to add workouts." +
                 " If you would like to remove a workout that you didn't do, simply mark the workout and click \"Remove Workout.\"");
         }
@@ -97,6 +99,7 @@ namespace FitTrackWPF
 
         private void btnDetails(object sender, RoutedEventArgs e)
         {
+            //Om något träningspass är markerat så går den in i if satsen
             if (lstWorkouts.SelectedItem is Workout selectedWorkout)
             {
                 WorkoutDetailsWindow detailsWindow = new WorkoutDetailsWindow(selectedWorkout, manager, workouts);
@@ -112,6 +115,7 @@ namespace FitTrackWPF
 
         private void btnUserDetails(object sender, RoutedEventArgs e)
         {
+            //går in och visar information om inloggad användare
             UserDetailsWindow userdetailsWindow = new UserDetailsWindow(manager, workouts);
             userdetailsWindow.Show();
             this.Close();

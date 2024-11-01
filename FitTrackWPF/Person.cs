@@ -17,7 +17,7 @@ namespace FitTrackWPF
             Username = username;
             Password = password;
         }
-
+        //Metod som säkerställer att det är rätt lösenord
         public bool CheckPassword(string password)
         {
             return Password == password;
@@ -25,12 +25,12 @@ namespace FitTrackWPF
 
 
         public abstract void SignIn();
-        
+        //metod som uppdaterar lösenord 
         public void UpdatePassword(string newPassword)
         {
             Password = newPassword;
         }
-
+        //metod som uppdaterar användarnamn
         public void UpdateUsername(string username)
         {
             Username = username;

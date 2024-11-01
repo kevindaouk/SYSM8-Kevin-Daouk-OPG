@@ -133,6 +133,7 @@ namespace FitTrackWPF
 
         private void btnCancel(object sender, RoutedEventArgs e)
         {
+            //Avbryter och går tillbaka till workoutwindow
             WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, workouts);
             workoutsWindow.Show();
             this.Close();

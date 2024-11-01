@@ -34,6 +34,7 @@ namespace FitTrackWPF
         public MainWindow()
         {
             InitializeComponent();
+            // Kontrollera och skapa instanser om manager eller workouts är null för att säkerställa att de alltid är giltiga objekt
             if (manager == null)
             {
                 manager = new UserManager();
@@ -96,7 +97,7 @@ namespace FitTrackWPF
 
 
         }
-
+        //går in i registreringsrutan och stänger mainwindow
         private void BtnRegister(object sender, RoutedEventArgs e)
         {
             RegisterWindow registerWindow = new RegisterWindow(manager);

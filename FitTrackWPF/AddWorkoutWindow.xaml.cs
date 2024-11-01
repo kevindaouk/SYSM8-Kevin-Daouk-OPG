@@ -35,7 +35,7 @@ namespace FitTrackWPF
             bool isDurationValid = int.TryParse(txtWorkoutDuration.Text, out int duration);
             string notes = txtNotes.Text;
 
-
+            // Kontrollera om alla obligatoriska fält är ifyllda och att duration är giltigt
             if (string.IsNullOrEmpty(workoutType) || string.IsNullOrEmpty(workoutDate) || !isDurationValid)
             {
                 MessageBox.Show("Please fill in all the fields correctly.");
@@ -46,17 +46,19 @@ namespace FitTrackWPF
 
             if (workoutType == "Cardio")
             {
+                // Kontrollera om kalorier är ifyllda och giltiga
                 bool isCaloriesValid = int.TryParse(txtCaloriesBurned.Text, out int caloriesBurned);
                 if (!isCaloriesValid)
                 {
                     MessageBox.Show("Please fill in amount of calories burned");
                     return;
                 }
-                //Skapar cardioworkout
+                //Skapar ett cardioworkout träningspass
                 newWorkout = new CardioWorkout(workoutType, workoutDate, duration, caloriesBurned, notes);
             }
             else if (workoutType == "Strength")
             {
+                // Kontrollera om repetitioner och set är giltiga
                 bool isRepetitionsValid = int.TryParse(txtRepetitions.Text, out int repetitions);
                 bool isSetsValid = int.TryParse(txtSets.Text, out int sets);
 
@@ -65,7 +67,7 @@ namespace FitTrackWPF
                     MessageBox.Show("Please fill in repetitions and sets");
                     return;
                 }
-                //Skapar strengthworkout
+                //Skapar ett strengthworkout träningspass
                 newWorkout = new StrengthWorkout(workoutType, workoutDate, duration, repetitions, sets, notes);
             }
             else
@@ -73,7 +75,7 @@ namespace FitTrackWPF
                 MessageBox.Show("Select valid workout type");
                 return;
             }
-
+            // Om en användare är inloggad och träningspasset är skapat, lägg till träningspasset till användarens workoutManager
             if (manager.CurrentUser != null && newWorkout != null)
             {
                 manager.CurrentUser.workoutManager.AddWorkout(newWorkout);
