@@ -24,7 +24,7 @@ namespace FitTrackWPF
             WorkoutsCollection.Add(workout);
         }
 
-        // Ta bort ett träningspass från ObservableCollection (om det behövs)
+        // Ta bort ett träningspass 
         public void RemoveWorkout(Workout workout)
         {
             WorkoutsCollection.Remove(workout);

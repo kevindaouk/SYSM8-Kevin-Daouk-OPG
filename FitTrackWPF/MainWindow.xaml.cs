@@ -20,8 +20,7 @@ namespace FitTrackWPF
 
         UserManager manager;
         WorkoutManager workouts;
-        
-        
+        AdminUser adminUser;
 
         public MainWindow(UserManager manager, WorkoutManager workouts)
         {
@@ -67,6 +66,7 @@ namespace FitTrackWPF
                 {
                     // Samla alla träningspass från alla användare
                     ObservableCollection<Workout> allWorkouts = new ObservableCollection<Workout>();
+                    
 
                     // Lägg till alla användares träningspass i allWorkouts
                     foreach (var user in manager.GetAllUsers())
@@ -75,10 +75,11 @@ namespace FitTrackWPF
                         {
                             allWorkouts.Add(workout);
                         }
-                    }
 
+                    }
+                    foundUser.workoutManager.WorkoutsCollection = allWorkouts;
                     // Öppna WorkoutsWindow för admin och visa alla träningspass
-                    WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, new WorkoutManager { WorkoutsCollection = allWorkouts });
+                    WorkoutsWindow workoutsWindow = new WorkoutsWindow(manager, foundUser.workoutManager);
                     workoutsWindow.Show();
                 }
                 else

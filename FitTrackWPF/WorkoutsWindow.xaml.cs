@@ -80,7 +80,8 @@ namespace FitTrackWPF
                 // Om det är admin som är inloggad, ta bort träningspasset från WorkoutManager
                 if (manager.CurrentUser is AdminUser)
                 {
-                    workouts.RemoveWorkout(selectedWorkout);
+                    
+                    workouts.WorkoutsCollection.Remove(selectedWorkout);
                     MessageBox.Show("Workout successfully removed by admin!");
                 }
                 else
